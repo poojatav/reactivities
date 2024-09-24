@@ -1,5 +1,5 @@
 import './App.css'
-import { ducks } from './Demo'
+import { ducks } from './demo'
 import DuckItem from './DuckItem'
 
 function App() {
