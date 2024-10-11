@@ -1,21 +1,12 @@
 import { Button, Item, Label, Segment } from 'semantic-ui-react'
-//import { Activity } from '../../../app/models/activity'
 import { SyntheticEvent, useState } from 'react';
 import { useStore } from '../../../app/stores/store';
 import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 
-// interface Props {
-//     activities: Activity[];
-//     selectActivity: (id: string) => void;
-//     deleteActivity: (id: string) => void;
-//     submitting: boolean;
-// }
-
-//export default function ActivityList({ activities, selectActivity, deleteActivity, submitting}: Props) {
 export default observer(function ActivityList() {
 
     const {activityStore} = useStore();
-    // const {deleteActivity, activities, loading} = activityStore;
     const {deleteActivity, activitiesByDate, loading} = activityStore;
     const[target, setTarget] = useState('');
 
@@ -27,7 +18,6 @@ export default observer(function ActivityList() {
     return (
         <Segment>
             <Item.Group divided>
-                {/* {activities.map(activity => ( */}
                 {activitiesByDate.map(activity => (
                     <Item key={activity.id}>
                         <Item.Content>
@@ -38,12 +28,10 @@ export default observer(function ActivityList() {
                                 <div>{activity.city},{activity.venue}</div>
                             </Item.Description>
                             <Item.Extra>
-                                {/* <Button onClick={() => selectActivity(activity.id)}  */}
-                                <Button onClick={() => activityStore.selectActivity(activity.id)} 
+                                <Button as={Link} to={`/activities/${activity.id}`}
                                 floated='right' content='View' color='blue' />
                                 <Button 
                                 name={activity.id}
-                                // loading={submitting && target === activity.id}
                                 loading={loading && target === activity.id}
                                 onClick={(e) => handleActivityDelete(e, activity.id)} 
                                 floated='right'
