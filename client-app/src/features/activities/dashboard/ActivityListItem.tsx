@@ -2,20 +2,12 @@ import { Button, Icon, Item, Segment } from 'semantic-ui-react'
 import { Activity } from '../../../app/models/activity'
 import { Link } from 'react-router-dom'
 import {format} from 'date-fns';
+import ActivityListItemAttendee from './ActivityListItemAttendee';
 
 interface Props {
     activity: Activity
 }
 export default function ActivityListItem({ activity }: Props) {
-
-    // const { activityStore } = useStore();
-    // const { deleteActivity, loading } = activityStore;
-    // const [target, setTarget] = useState('');
-
-    // function handleActivityDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
-    //     setTarget(e.currentTarget.name);
-    //     deleteActivity(id);
-    // }
 
     return (
         <Segment.Group>
@@ -23,7 +15,7 @@ export default function ActivityListItem({ activity }: Props) {
                 <Item.Group>
                     <Item>
                         {/* <Item.Image size='tiny' circular src={`/assets/categoryImages/${activity.category}.jpg`} /> */}
-                        <Item.Image size='tiny' circular src='/assets/logo.jpg' />
+                        <Item.Image size='tiny' circular src='/assets/logo.png' />
                         <Item.Content>
                             <Item.Header as={Link} to={`/activities/${activity.id}`}>
                                 {activity.title}
@@ -40,7 +32,8 @@ export default function ActivityListItem({ activity }: Props) {
                 </span>
             </Segment>
             <Segment secondary >
-                Attendees go here!!
+            <ActivityListItemAttendee attendees={activity.attendees || []} />
+                {/* <ActivityListItemAttendee attendees={activity.attendees!} /> */}
             </Segment>
             <Segment cleaning>
                 <span>{activity.description}</span>
