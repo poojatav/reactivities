@@ -1,8 +1,8 @@
-import { Button, Card, CardContent, CardDescription, CardHeader, CardMeta, Grid, Image } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import { observer } from 'mobx-react-lite';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import ActivityDetailedHeader from './ActivityDetailedHeader';
 import ActivityDetailedSidebar from './ActivityDetailedSidebar';
@@ -28,7 +28,7 @@ export default observer(function ActivityDetails() {
                 <ActivityDetailedChat />
             </Grid.Column>
             <Grid.Column width={6}>
-                <ActivityDetailedSidebar />
+                <ActivityDetailedSidebar activity={activity}/>
             </Grid.Column>
         </Grid>
     )

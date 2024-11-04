@@ -3,10 +3,10 @@ import { Profile } from "../../../app/models/profile";
 import { Link } from "react-router-dom";
 
 interface Props {
-  attendees?: Profile[];
+  attendees? : Profile[];
 }
 
-export default function ActivityListItemAttendee({ attendees = []}: Props) {
+export default function ActivityListItemAttendee({ attendees  = [] }: Props) {
   return (
     <List horizontal>
       {attendees.map(attendee => (
