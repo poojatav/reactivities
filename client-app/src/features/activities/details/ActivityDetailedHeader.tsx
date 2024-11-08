@@ -27,11 +27,11 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{ padding: '0' }}>
-                {/* <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle} /> */}
                 {activity.isCancelled &&
                     <Label style={{ position: 'absolute', zIndex: 1000, left: -14, top: 20 }}
                         ribbon color='red' content='Cancelled' />}
-                <Image src='/assets/logo1.jpg' fluid style={activityImageStyle} />
+                <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle} />
+                {/* <Image src='/assets/logo1.jpg' fluid style={activityImageStyle} /> */}
                 <Segment style={activityImageTextStyle} basic>
                     <Item.Group>
                         <Item>

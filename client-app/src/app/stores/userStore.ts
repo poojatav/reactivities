@@ -30,7 +30,6 @@ export default class userStore {
 
     logout = () => {
         store.commonStore.setToken(null);
-        window.localStorage.removeItem('jwt');
         this.user = null;
         router.navigate('/');
     }

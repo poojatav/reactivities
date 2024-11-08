@@ -3,7 +3,8 @@ import ActivityStore from "./activityStore";
 import UserStore from "./userStore";
 import CommonStore from "./commonStore";
 import ModalStore from "./modalStore";
-import ProfileStore from "./ProfileStore";
+import ProfileStore from "./profileStore";
+
 
 interface Store{   
     activityStore: ActivityStore;

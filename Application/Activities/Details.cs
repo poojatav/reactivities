@@ -30,9 +30,6 @@ namespace Application.Activities
             }
             public async Task<Result<ActivityDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                // var activity = await _context.activities.FindAsync(request.Id);
-                // return Result<Activity>.Success(activity);
-
                 var activity = await _context.activities
                     .ProjectTo<ActivityDto>(_mapper.ConfigurationProvider)
                     .FirstOrDefaultAsync(x => x.Id == request.Id);

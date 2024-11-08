@@ -18,8 +18,9 @@ export default observer(function LoginForm() {
                     <Header as='h2' content='Login to Reactivities' color="teal" textAlign="center" />
                     <MyTextInput placeholder="Email" name='email' />
                     <MyTextInput placeholder="Password" name='password' type='password' />
-                    <ErrorMessage name='error' render={() => 
-                        <Label style={{ marginBottom: 10 }} basic color='red' content={errors.error} />} />
+                    <ErrorMessage name='error' render={() =>
+                        <Label style={{ marginBottom: 10 }} basic color='red' content={errors.error} />}
+                    />
                     <Button loading={isSubmitting} positive content='Login' type="submit" fluid />
                 </Form>
             )}

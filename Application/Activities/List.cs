@@ -22,12 +22,6 @@ namespace Application.Activities
                 _context = context;
                 _mapper = mapper;
             }
-
-            // public async Task<Result<List<Activity>>> Handle(Query request, CancellationToken cancellationToken)
-            // {
-            //     return Result<List<Activity>>.Success(await _context.activities.ToListAsync(cancellationToken));
-            // }
-
             public async Task<Result<List<ActivityDto>>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var activities = await _context.activities

@@ -8,16 +8,13 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
-    //[AllowAnonymous]
     public class ActivitiesController : BaseApiController
     {
-
         [HttpGet]
         public async Task<IActionResult> GetActivities()
         {
             //return HandleResult<List<ActivityDto>>(await Mediator.Send(new List.Query()));
-            return HandleResult(await Mediator.Send(new List.Query()));
-            
+            return HandleResult(await Mediator.Send(new List.Query()));            
         }
 
         [HttpGet("{id}")]

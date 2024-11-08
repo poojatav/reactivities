@@ -11,7 +11,7 @@ export default observer(function RegisterForm() {
         <Formik
             initialValues={{ displayName: '', username: '', email: '', password: '', error: null }}
             onSubmit={(values, { setErrors }) =>
-                userStore.register(values).catch(error => setErrors({ error: error }))}
+                userStore.register(values).catch(error => setErrors({ error}))}
             validationSchema={Yup.object({
                 displayName: Yup.string().required(),
                 username: Yup.string().required(),

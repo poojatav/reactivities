@@ -16,7 +16,7 @@ export default function ActivityListItemAttendee({ attendees = [] }: Props) {
           trigger={
               <List.Item as={Link} to={`/profiles/${attendee.username}`}>
                   <Image size='mini' 
-                         circular src={attendee.image || '/assets/logo.png'} />
+                         circular src={attendee.image || '/assets/user.png'} />
               </List.Item>
           }
         >
