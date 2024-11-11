@@ -32,6 +32,7 @@ namespace Infrastructure.Photos
         //         };
 
         //         var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+
         //         if (uploadResult.Error != null)
         //         {
         //             throw new Exception(uploadResult.Error.Message);
@@ -43,14 +44,14 @@ namespace Infrastructure.Photos
         //             Url = uploadResult.SecureUrl.ToString()
         //         };
         //     }
-        //     return null;
+        //    return null;
         // }
 
         public async Task<PhotoUploadResult> AddPhoto(IFormFile file)
         {
             try
             {
-                if (file == null) throw new ArgumentNullException(nameof(file), "File must not be null.");
+                if (file == null) throw new ArgumentNullException(nameof(file), "File must not be null in Interface.");
                 if (file.Length == 0) throw new Exception("File is empty.");
 
                 await using var stream = file.OpenReadStream();

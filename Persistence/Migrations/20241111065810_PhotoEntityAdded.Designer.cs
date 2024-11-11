@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241105084645_PhotoEntityAdded")]
+    [Migration("20241111065810_PhotoEntityAdded")]
     partial class PhotoEntityAdded
     {
         /// <inheritdoc />
@@ -148,8 +148,8 @@ namespace Persistence.Migrations
                     b.Property<string>("AppUserId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("IsMain")
-                        .HasColumnType("BOOLEAN");
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");

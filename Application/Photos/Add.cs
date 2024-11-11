@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Core;
 using Application.Interfaces;
 using Domain;
@@ -32,66 +28,29 @@ namespace Application.Photos
                 _photoAccessor = photoAccessor;
             }
 
-            // public async Task<Result<Photo>> Handle(Command request, CancellationToken cancellationToken)
-            // {
-            //     var user = await _context.Users.Include(p => p.Photos)
-            //        .FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
-
-            //     if (user == null) return null;
-
-            //     var photoUploadResult = await _photoAccessor.AddPhoto(request.File);
-
-            //     var photo = new Photo
-            //     { 
-            //         Url = photoUploadResult.Url,
-            //         Id = photoUploadResult.PublicId
-            //     };
-
-            //     if (!user.Photos.Any(x => x.IsMain == 1)) photo.IsMain = 1;
-
-            //     user.Photos.Add(photo);
-
-            //     var result = await _context.SaveChangesAsync() > 0;
-
-            //     if (result) return Result<Photo>.Success(photo);
-
-            //     return Result<Photo>.Failer("Problem adding photo");
-            // }
-
             public async Task<Result<Photo>> Handle(Command request, CancellationToken cancellationToken)
             {
-                try
+                var photoUploadResult = await _photoAccessor.AddPhoto(request.File);
+                var user = await _context.Users.Include(p => p.Photos)
+                    .FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
+
+                if (user == null) return null;
+                var photo = new Photo
                 {
-                    var user = await _context.Users.Include(p => p.Photos)
-                        .FirstOrDefaultAsync(x => x.UserName == _userAccessor.GetUsername());
+                    Url = photoUploadResult.Url,
+                    Id = photoUploadResult.PublicId
+                };
 
-                    if (user == null) return Result<Photo>.Failer("User not found.");
+                if (!user.Photos.Any(x => x.IsMain)) photo.IsMain = true;
 
-                    var photoUploadResult = await _photoAccessor.AddPhoto(request.File);
-                    if (photoUploadResult == null) return Result<Photo>.Failer("Photo upload failed.");
+                user.Photos.Add(photo);
 
-                    var photo = new Photo
-                    {
-                        Url = photoUploadResult.Url,
-                        Id = photoUploadResult.PublicId
-                    };
+                var result = await _context.SaveChangesAsync() > 0;
 
-                    if (!user.Photos.Any(x => x.IsMain)) photo.IsMain = true;
+                if (result) return Result<Photo>.Success(photo);
 
-                    user.Photos.Add(photo);
-
-                    var result = await _context.SaveChangesAsync() > 0;
-
-                    if (result) return Result<Photo>.Success(photo);
-
-                    return Result<Photo>.Failer("Problem adding photo");
-                }
-                catch (Exception ex)
-                {
-                    return Result<Photo>.Failer($"An error occurred: {ex.ToString()}");
-                }
+                return Result<Photo>.Failure("Problem adding photo");
             }
         }
-
     }
 }

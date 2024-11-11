@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Application.Core;
 using Application.Interfaces;
 using Domain;
@@ -53,7 +49,7 @@ namespace Application.Activities
 
                 _context.activities.Add(request.Activity);
                 var result = await _context.SaveChangesAsync() > 0;
-                if (!result) return Result<Unit>.Failer("Failed to Create a activity");
+                if (!result) return Result<Unit>.Failure("Failed to Create a activity");
                 return Result<Unit>.Success(Unit.Value);
             }
         }
