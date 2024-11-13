@@ -13,7 +13,7 @@ body {
     ;
 }
 
-.react-datepicker-wrapper{
+.react-datepicker-wrapper {
     width: 100%;
 }
 
@@ -59,3 +59,263 @@ body {
     color: #1b1c1d;
     /* Inverted on hover */
 }
+
+
+
+
+
+
+
+
+/* FILTER START */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Grid container styles */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+/* Column styles */
+.grid-column {
+    padding: 15px;
+}
+
+.grid-column.width-10 {
+    flex: 0 0 83.33%;
+    max-width: 83.33%;
+}
+
+.grid-column.width-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+
+    .grid-column.width-10,
+    .grid-column.width-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        margin: 10px;
+    }
+
+    .grid-column.width-10,
+    .grid-column.width-6 {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    .grid-column.width-10,
+    .grid-column.width-6 {
+        padding: 5px;
+    }
+}
+
+/* FILTER END */
+
+
+
+
+
+
+
+/* NAVBAR START */
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-user-section {
+    display: flex;
+    align-items: center;
+}
+
+/* Adjust the menu for mobile screens */
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-user-section {
+        margin-top: 10px;
+    }
+
+    .menu-item {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+/* NAVBAR END */
+
+/* ActivityDetailedHeader Start */
+
+.activity-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.activity-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    color: white;
+    text-align: center;
+    padding: 8px; 
+}
+
+.activity-header-text {
+    margin: 0;
+    font-size: 1.6rem; 
+    line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+    .activity-header-text {
+        font-size: 1.4rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .activity-header-text {
+        font-size: 1.2rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .activity-header-text {
+        font-size: 1rem; 
+    }
+}
+
+.activity-paragraph-text {
+    font-size: 1rem; 
+    margin: 5px 0;
+}
+
+@media (max-width: 1024px) {
+    .activity-paragraph-text {
+        font-size: 0.9rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .activity-paragraph-text {
+        font-size: 0.8rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .activity-paragraph-text {
+        font-size: 0.7rem; 
+    }
+}
+
+.activity-host-text {
+    font-size: 1rem; 
+    color: #f0f0f0;
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .activity-host-text {
+        font-size: 0.9rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .activity-host-text {
+        font-size: 0.8rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .activity-host-text {
+        font-size: 0.7rem; 
+    }
+}
+
+/* ActivityDetailedHeader end */
+
+/* ProfilePage start */
+
+/* On large screens, take 70% width for 12 wide column and 30% for 4 wide column */
+.ui.column.grid>[class*="twelve wide"].column,
+.ui.grid>.column.row>[class*="twelve wide"].column,
+.ui.grid>.row>[class*="twelve wide"].column,
+.ui.grid>[class*="twelve wide"].column {
+    width: 70% !important;
+}
+
+.ui.column.grid>[class*="four wide"].column,
+.ui.grid>.column.row>[class*="four wide"].column,
+.ui.grid>.row>[class*="four wide"].column,
+.ui.grid>[class*="four wide"].column {
+    width: 30% !important;
+}
+
+/* Mobile-first approach: Stack columns on small screens */
+@media (max-width: 767px) {
+    .ui.column.grid>[class*="twelve wide"].column,
+    .ui.grid>.column.row>[class*="twelve wide"].column,
+    .ui.grid>.row>[class*="twelve wide"].column,
+    .ui.grid>[class*="twelve wide"].column,
+    .ui.column.grid>[class*="four wide"].column,
+    .ui.grid>.column.row>[class*="four wide"].column,
+    .ui.grid>.row>[class*="four wide"].column,
+    .ui.grid>[class*="four wide"].column {
+        width: 100% !important; /* Make both columns full width on small devices */
+    }
+}
+
+/* Tablets or medium-sized devices */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .ui.column.grid>[class*="twelve wide"].column,
+    .ui.grid>.column.row>[class*="twelve wide"].column,
+    .ui.grid>.row>[class*="twelve wide"].column,
+    .ui.grid>[class*="twelve wide"].column {
+        width: 70% !important;
+    }
+
+    .ui.column.grid>[class*="four wide"].column,
+    .ui.grid>.column.row>[class*="four wide"].column,
+    .ui.grid>.row>[class*="four wide"].column,
+    .ui.grid>[class*="four wide"].column {
+        width: 30% !important;
+    }
+}
+
+/* ProfilePage end */
+

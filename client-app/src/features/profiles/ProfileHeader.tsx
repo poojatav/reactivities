@@ -11,7 +11,7 @@ export default observer(function ProfileHeader({profile}: Props) {
     return (
         <Segment>
             <Grid>
-                <Grid.Column width={12}>
+                <Grid.Column width={10}>
                     <Item.Group>
                         <Item>
                             <Item.Image  
@@ -25,10 +25,10 @@ export default observer(function ProfileHeader({profile}: Props) {
                         </Item>
                     </Item.Group>
                 </Grid.Column>
-                <Grid.Column width={4}>
-                    <Statistic.Group widths={2}>
-                        <Statistic label='Followers' value='5' />
-                        <Statistic label='Following' value='42' />
+                <Grid.Column width={6}>
+                    <Statistic.Group widths={3}>
+                        <Statistic className="custom-statistic" label='Followers' value='5' />
+                        <Statistic className="custom-statistic" label='Following' value='42' />
                     </Statistic.Group>
                     <Divider />
                     <Reveal animated='move'>

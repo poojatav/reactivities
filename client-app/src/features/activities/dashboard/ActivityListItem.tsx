@@ -3,6 +3,8 @@ import { Activity } from '../../../app/models/activity'
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns';
 import ActivityListItemAttendee from './ActivityListItemAttendee';
+import '../../../app/layout/styles.css';
+ 
 
 interface Props {
     activity: Activity

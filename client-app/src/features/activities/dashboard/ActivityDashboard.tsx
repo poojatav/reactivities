@@ -19,12 +19,12 @@ export default observer(function ActivityDashboard() {
     if (activityStore.loadingInitial) return <LoadingComponent content='Loading activities...' />
 
     return (
-        <Grid>
-            <Grid.Column width='10'>
-                <ActivityList />
-            </Grid.Column>
-            <Grid.Column width='6'>
+        <Grid>           
+            <Grid.Column mobile={16} tablet={4} computer={6}>
                 <ActivityFilters />
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={12} computer={10}>
+                <ActivityList />
             </Grid.Column>
         </Grid>
     )
